@@ -17,7 +17,7 @@
     setTimeout(dismissMessage, timeout);
   });
 
-  const typeStyles = $derived(() => {
+  const typeStyles = $derived.by(() => {
     switch (message.type) {
       case 'success':
         return 'border-green-800';
@@ -35,7 +35,7 @@
 </script>
 
 <div
-  class="m-6 flex items-center justify-between border-2 {typeStyles()} min-h-12 rounded-3xl bg-white dark:bg-slate-900"
+  class="m-6 flex items-center justify-between border-2 {typeStyles} min-h-12 rounded-3xl bg-white dark:bg-slate-900"
 >
   <div class="mx-4 flex grow">
     <span class="font-bold">{message.text}</span>

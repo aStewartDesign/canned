@@ -2,8 +2,16 @@
   interface Props {
     value: string;
     onblur?: () => void;
+    onenter?: () => void;
   }
-  let { value = $bindable(), onblur }: Props = $props();
+  let { value = $bindable(), onblur, onenter }: Props = $props();
+
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (onenter && event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      onenter();
+    }
+  };
 </script>
 
 <div class="grow-wrap grow" data-replicated-value={value}>
@@ -13,5 +21,6 @@
     rows="1"
     bind:value
     {onblur}
+    onkeydown={handleKeydown}
   ></textarea>
 </div>
