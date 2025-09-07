@@ -1,0 +1,17 @@
+{
+  "name": "canned",
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2025-01-01",
+  "build": {
+    "command": "npm run build"
+  },
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare"
+  },
+  "env": {
+    "prod": {
+      "route": { "pattern": "canned.bitcrit.co", "custom_domain": true }
+    }
+  }
+}
