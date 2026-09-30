@@ -1,38 +1,44 @@
-# sv
+# Canned
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Save the snippets of text you use all the time and copy any of them with one tap.
 
-## Creating a project
+**Live app:** [canned.bitcrit.co](https://canned.bitcrit.co/)
 
-If you're seeing this, you've probably already done this step. Congrats!
+![Screenshot of Canned showing a list of text snippets that can be copied](./docs/screenshot.png)
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Background
 
-# create a new project in my-app
-npx sv create my-app
-```
+I kept retyping the same bits of text: addresses, links, replies. I wanted a simple place to keep them where copying one snippet of text takes a single tap. I also wanted a hands-on way to learn progressive web apps, service workers, and IndexedDB, and this small, well-defined idea was a good fit for those experiments.
 
-## Developing
+## Features
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Save, edit, and delete text snippets
+- Copy any snippet to the clipboard with one tap
+- Installable on your phone or desktop like a native app
+- Works fully offline
+- Snippets are stored locally in your browser, so nothing leaves your device
 
-```sh
-npm run dev
+## Tech stack
+
+- [SvelteKit](https://svelte.dev/docs/kit/introduction)
+- IndexedDB with [Dexie](https://dexie.org/)
+- Cloudflare [workers](https://www.cloudflare.com/products/workers) and [pages](https://www.cloudflare.com/products/pages)
+
+## Running locally
+
+Requires [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io).
+
+```bash
+pnpm install
+pnpm run dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm run dev -- --open
 ```
 
 ## Building
 
-To create a production version of your app:
-
-```sh
-npm run build
+```bash
+pnpm run build
+pnpm run preview   # preview the production build locally
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
